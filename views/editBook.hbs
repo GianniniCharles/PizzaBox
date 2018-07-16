@@ -1,0 +1,40 @@
+
+<h2>{{theBook.title}}</h2>
+<h2>Edit this Book</h2>
+
+
+<form action="/books/{{theBook._id}}/update" method="post">
+
+<label>Title</label>
+<input type="text" name="title" value="{{theBook.title}}">
+<br>
+
+<label>Author</label>
+<select name="author">
+
+    {{#each allTheAuthors}}
+    {{#if this.yes}}
+    <option value="{{this._id}}" selected="selected">{{this.name}} {{this.lastName}}</option>
+    {{/if}}
+    {{/each}} 
+
+    {{#each allTheAuthors}}
+    {{#unless this.yes}}
+    <option value="{{this._id}}">{{this.name}} {{this.lastName}}</option>
+    {{/unless}}
+    {{/each}}  
+
+</select>
+<br>
+
+<label>Description</label>
+<textarea name="description" cols="30" rows="10" >{{theBook.description}}</textarea>
+<br>
+
+<label>Rating</label>
+<input type="number" name="rating" value="{{theBook.rating}}">
+<br>
+<button type="submit">Save Book</button>
+
+
+</form>

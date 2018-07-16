@@ -1,0 +1,31 @@
+
+<h2>Add a New Book to the Library</h2>
+
+
+<form action="/books/create" method="post">
+
+<label>Title</label>
+<input type="text" name="title">
+<br>
+
+
+<label>Author</label>
+<select name="author" required="true">
+    <option value="null"></option>
+    {{#each allTheAuthors}}
+    <option value="{{this._id}}">{{this.name}} {{this.lastName}}</option>
+    {{/each}}  
+</select>
+<br>
+
+<label>Description</label>
+<textarea name="description" cols="30" rows="10"></textarea>
+<br>
+
+<label>Rating</label>
+<input type="number" name="rating">
+<br>
+<button type="submit">Save Book</button>
+
+
+</form>

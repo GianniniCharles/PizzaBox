@@ -1,0 +1,35 @@
+<hr>
+{{theBook.title}}
+<hr>
+<p>Plot:</p>
+{{theBook.description}}
+<hr>
+<h2>Author:</h2>
+{{theBook.author.name}} {{theBook.author.lastName}}
+<p>{{theBook.author.birthday}}</p>
+<p>{{theBook.author.nationality}}</p>
+<hr>
+Rating: {{theBook.rating}}
+<hr>
+<a href="/books/{{theBook._id}}/edit">Edit This Book</a>
+
+
+<form action="/books/{{theBook._id}}/delete" method="post">
+<button>Delete This Book</button>
+</form>
+
+<a href="/books/{{theBook._id}}/reviews/new">Add a Review for This Book</a>
+
+
+<div>
+  <h2>Reviews For This Book</h2>
+  <hr>
+    {{#each theBook.reviews}}
+        <h4>{{this.reviewer}}</h4>
+        <p>{{this.content}}</p>
+        <form action="/books/{{../theBook._id}}/reviews/delete/{{@index}}" method="post">
+            <button>Delete This Review</button>
+        </form>
+        <hr>
+    {{/each}}
+</div>

@@ -1,0 +1,32 @@
+
+<h1>Five Minute Rule</h1>
+<p>Sign up to get great food at a greater price.</p>
+
+<form action="/signup" method="post">
+
+    <label for="username">Username</label>
+    <input id="username" type="text" name="username">
+
+    <label for="password">password</label>
+    <input id="password" name="password" type="password">
+
+<label for ='user-type'>I am a ...</label>
+    <select id='user-type' name="usertype">
+    <option value="null"></option>
+    <option value="Customer">Customer</option>
+    <option value="Restaurant">Restaurant</option>
+    </select>
+
+
+    <button>Submit</button>
+
+</form>
+
+{{#if errorMessage}}
+<div class = "theError">{{errorMessage}}</div>
+{{/if}}
+
+
+<footer>
+<p>Already have an account? <a href = '/index'>Login here</a></p>
+</footer>

@@ -1,0 +1,15 @@
+
+<form action="/books/{{book._id}}/reviews/create" method="post">
+
+    <label for="reviewer">Who Are You?</label>
+    <input type="text" id="reviewer" name="reviewer">
+
+    {{!-- example of a label without a for attribute, cannot click on the words, sad :( --}}
+    <label>What Do You Have To Say?</label>
+    <textarea name="content" cols="30" rows="10"></textarea>
+    {{!-- no id on the textarea because the only purpose of the id is to connect the label to the input for fancy clicking purposes  --}}
+
+    
+    <button type="submit">Post It</button>
+
+</form>

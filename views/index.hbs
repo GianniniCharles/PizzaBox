@@ -1,0 +1,20 @@
+<h1>{{title}}</h1>
+
+
+<form action = "/login" method = "post">
+<input type = 'text' name = 'username' id = 'user-input' placeholder = 'username'>
+<input type = 'password' name = 'password' id = 'password-input' placeholder = 'password'>
+<p><a href = '/recover'>Forgot password?</a></p>
+
+<button type = 'submit'>Login</button>
+
+</form>
+
+{{#if message }}
+    <div class="theError">{{ message }}</div>
+{{/if}}
+
+
+<footer>
+<p>Don't have an account? <a href = '/signup'>Register here</a></p>
+</footer>
