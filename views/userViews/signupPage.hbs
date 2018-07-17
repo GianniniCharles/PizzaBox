@@ -1,3 +1,6 @@
+{{#if errorMessage}}
+<div class = "theError">{{errorMessage}}</div>
+{{/if}}
 
 <h1>Five Minute Rule</h1>
 <p>Sign up to get great food at a greater price.</p>
@@ -22,11 +25,8 @@
 
 </form>
 
-{{#if errorMessage}}
-<div class = "theError">{{errorMessage}}</div>
-{{/if}}
 
 
 <footer>
-<p>Already have an account? <a href = '/index'>Login here</a></p>
+<p>Already have an account? <a href = '/'>Login here</a></p>
 </footer>

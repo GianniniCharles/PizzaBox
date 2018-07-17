@@ -8,11 +8,12 @@ const pizzaBoxSchema = new Schema({
   imgsrc: String,
   pizzaname: String,
   description: String,
-  // originlocation: String, 
-  // pizzaboxer: {type: Schema.Types.ObjectId, ref:'User'},
-  // purchased_by: {type: Schema.Types.ObjectId, ref: 'User'},
-  //
-  // timelimit: 
+  originlocation: String, 
+  targetlocation: String,
+  pizzaboxer: {type: Schema.Types.ObjectId, ref:'User'},
+  purchased_by: {type: Schema.Types.ObjectId, ref: 'User'},
+  timelimit: String,
+  status: String,
 
 },
 {timestamps: true}  

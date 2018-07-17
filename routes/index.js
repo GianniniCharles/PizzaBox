@@ -13,7 +13,7 @@ router.get('/', (req, res, next) => {
 });
 
 
-// , {layout: 'layout2.hbs'}
+// , 
 module.exports = router;
 
 
