@@ -7,10 +7,19 @@ const pizzaBoxSchema = new Schema({
   store: String,
   imgsrc: String,
   pizzaname: String,
-  toppings: [String],  
-});
+  description: String,
+  // originlocation: String, 
+  // pizzaboxer: {type: Schema.Types.ObjectId, ref:'User'},
+  // purchased_by: {type: Schema.Types.ObjectId, ref: 'User'},
+  //
+  // timelimit: 
+
+},
+{timestamps: true}  
+);
 
 const PizzaBox = mongoose.model("PizzaBox", pizzaBoxSchema);
 
 
 module.exports = PizzaBox;
+

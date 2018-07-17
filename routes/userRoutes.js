@@ -56,7 +56,7 @@ userRouter.get("/login", (req, res, next) => {
 
 userRouter.post("/login", passport.authenticate("local", {
     successRedirect: "/home/",  
-    failureRedirect: "/index",
+    failureRedirect: "/login",
     failureFlash: true,
     passReqToCallback: true
   }));
@@ -92,10 +92,10 @@ userRouter.get('/login', (req, res, next)=>{
 //   });//this ends the route
 
 
-userRouter.get("/home/", ensureLoggedIn('/login'), (req, res, next)=>{
+userRouter.get("/home/", ensureLoggedIn('/'), (req, res, next)=>{
   
   if (req.user.usertype === "Restaurant") {
-    res.render('userViews/restaurantViews/restaurantHome', {user: req.user});
+    res.render('userViews/pizzaBoxViews/pizzaBoxHome', {user: req.user});
   }
   
   if (req.user.usertype === "Customer") {
@@ -109,7 +109,7 @@ userRouter.get("/home/", ensureLoggedIn('/login'), (req, res, next)=>{
 
 userRouter.get("/logout", (req, res, next) => {
     req.logout();
-    res.redirect("/login");
+    res.redirect("/");
   });
 
 
