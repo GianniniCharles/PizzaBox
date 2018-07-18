@@ -55,26 +55,18 @@ pizzaBoxRouter.get('/myPizzaBoxes',ensureLoggedIn('/'), (req, res, next)=>{
     res.redirect('/')
     return; 
   }
-  res.render('userViews/pizzaBoxViews/myPizzaBoxes.hbs', {user: req.user});
+PizzaBox.find({
+  pizzaboxer: req.user._id// Here put the proper query selector that works in compass: remember. it's gonna be req.user._id
+})
+.then((myPizzaBoxes)=>{
+  res.render('userViews/pizzaBoxViews/myPizzaBoxes.hbs', {user: req.user, myPizzaBoxes});
+})
+.catch((err)=>{
+  next(err);
+})
 });
 
 
-
-
-// router.get('/books',ensureLogin.ensureLoggedIn(), (req, res, next) => {
-//   // if(!req.session.currentUser){
-//   //     res.redirect('/login');
-//   //     return;
-//   // } // this way you can use to make ONE SINGLE ROUTE private but oyu have to do it in every route that you want to restrict
-//   Book.find()
-//   .populate('author')
-//   .then((listOfBooks)=>{
-//       res.render('books', {listOfBooks});
-//   })
-//   .catch((err)=>{
-//       next(err); 
-//    })
-// });
 
 
 module.exports = pizzaBoxRouter;
