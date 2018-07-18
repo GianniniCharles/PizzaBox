@@ -6,36 +6,46 @@ We can watch for any abandoned pizzas and alert you.
 
 <p>Turn on the pizza scanner to get a notification when a pizza is nearby!</p>
 
-{{#if pizzabox}} {{!-- Check the spelling of pizzabox once mongo is set up --}}
+
 
 
  {{!-- I can also put this entire big div in a partial if that turns out to be more useful --}}
 <div>
   <h3>There are pizza boxes up for grabs!</h3>
-    {{#each pizzabox}}
-      <div class = "pizzacard"> 
-        I'm a pizza card!
-        {{!-- 
-        In the pizza card, include the name of the company, name of the pizza
-        who posted the pizza, cost, and time left to order the pizza.
+    {{#each activePizzaBoxes}}
+      <div class = "pizzaCard"> 
+     
+  <h3>{{this.store}}</h3>
+  <img src="{{this.imgsrc}}" alt="pizzaDefault" style="width:100px">
+  <br>
+  {{this.pizzaname}}
+  <br>
+  {{this.pizzaboxer.name}}
+  <br>
+ {{this.description}}
+ <br>
+ Time Remaining: {{this.timelimit}} minutes.
 
-        Once you get the map api, you should also put the cost of the pizza 
+ {{this}}
 
-        
-        
-        
-         --}}
-        
-        </div>
-      </div>
 </div>
     {{/each}}
 
 
 
-{{/if}}
+
 
 
 
 
 <button>Scan for my pizza!</button>
+
+
+       {{!-- 
+        In the pizza card, include the name of the company, name of the pizza
+        who posted the pizza, cost, and time left to order the pizza.
+
+        Once you get the map api, you should also put the cost of the pizza 
+{{!-- a href ="/newPizzaBox">Add a new PizzaBox</a>
+{{#each myPizzaBoxes}}
+{{!-- Change the THIS to a card containing the store, image, pizza name, and time left --}}

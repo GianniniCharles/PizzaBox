@@ -4,6 +4,7 @@ const User         = require('../models/user');
 const bcrypt       = require('bcryptjs');
 const passport     = require('passport');
 const ensureLoggedIn = require('connect-ensure-login').ensureLoggedIn;
+const PizzaBox         = require('../models/pizzabox');
 
 userRouter.get('/signup', (req, res, next)=>{
 
@@ -99,10 +100,18 @@ userRouter.get("/home/", ensureLoggedIn('/'), (req, res, next)=>{
   }
   
   if (req.user.usertype === "Customer") {
-    res.render('userViews/customerViews/customerHome', {user: req.user});
+    PizzaBox.find({
+      status: "active"
+    })
+    .then((activePizzaBoxes)=>{
+      res.render('userViews/customerViews/customerHome', {user: req.user, activePizzaBoxes});
+    })
+    .catch((err)=>{
+      next(err);
+    })
   }
   
-})
+});
 
 
 
@@ -111,6 +120,15 @@ userRouter.get("/logout", (req, res, next) => {
     req.logout();
     res.redirect("/");
   });
+
+
+  // PizzaBox Routes: Customer Side
+
+
+
+
+
+
 
 
 module.exports = userRouter;

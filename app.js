@@ -133,8 +133,8 @@ app.use('/', index);
 const userRoutes = require('./routes/userRoutes');
 app.use('', userRoutes);
 
-const pizzaBoxRoutes = require('./routes/pizzaBoxRoutes', ensureLogin.ensureLoggedIn());
-app.use('', pizzaBoxRoutes);
+const pizzaBoxerRoutes = require('./routes/pizzaBoxerRoutes', ensureLogin.ensureLoggedIn());
+app.use('', pizzaBoxerRoutes);
 
 
 
