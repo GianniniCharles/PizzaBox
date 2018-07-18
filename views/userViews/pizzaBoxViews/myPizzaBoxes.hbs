@@ -1,10 +1,35 @@
 <h1>Hi there, {{user.username}}</h1>
 <h2>Here are your pizza boxes</h2>
 
-
+<a href ="/newPizzaBox">Add a new PizzaBox</a>
 {{#each myPizzaBoxes}}
+{{!-- Change the THIS to a card containing the store, image, pizza name, and time left --}}
+<div class ="pizzaCard">
+  <h3>{{this.store}}</h3>
+  <img src="/images/pizzaClipArt.jpeg" alt="pizzaDefault" style="width:100px">
+  <br>
+  {{this.pizzaname}}
+  <br>
+  {{this.pizzaboxer.name}}
 
-  <h3>{{this}}</h3>
+  <form action = "/myPizzaBoxes/edit" method = "post">
+    <input type = "hidden" value ="{{this._id}}" name ="id">
+    <button>Edit this PizzaBox</button>
+  </form>
+  <br>
+  <form action = "/myPizzaBoxes/delete" method = "post">
+    <input type = "hidden" value ="{{this._id}}" name ="deadPizzaBoxId">
+    <button>Delete this PizzaBox</button>
+  </form>
+  </div>
 
+  {{!-- <a href = "/update/{{this._id}}">Update this pizzabox</a>
+  <form action = "/delete/{{this._id}}" method = "get">
+    <button>Delete this Pizzabox
+    <button>
+  </form> --}}
 
+  {{!-- href to show page --}}
+  {{!-- href to update page --}}
+  {{!-- href to delete page --}}
 {{/each}}

@@ -68,5 +68,63 @@ PizzaBox.find({
 
 
 
+pizzaBoxRouter.post("/myPizzaBoxes/edit", ensureLoggedIn('/'), (req, res, next)=>{
+  if(req.user.usertype !== 'Restaurant') {
+    res.redirect('/')
+    return; 
+  }
+  const theId = req.body.id;
+  PizzaBox.findById(theId)
+  .then((thisPizzaBox)=>{
+    res.render('userViews/pizzaBoxViews/editPizzaBox', {pizzabox: thisPizzaBox})
+  })
+
+
+
+});
+
+pizzaBoxRouter.post("/myPizzaBoxes/update", ensureLoggedIn('/'), (req, res, next)=>{
+  if(req.user.usertype !== 'Restaurant') {
+    res.redirect('/')
+    return; 
+  }
+  const theId = req.body.pizzaboxid;
+  PizzaBox.findByIdAndUpdate(theId, {
+  store: req.body.store,
+  imgsrc: req.body.imgsrc,
+  pizzaname: req.body.pizzaname,
+  description: req.body.description,
+  originlocation: req.body.originlocation,
+  targetlocation: req.body.targetlocation,
+  purchasedby: req.body.purchasedby,
+  timetolive: req.body.timelimit,
+  status: req.body.status,
+  })
+  .then((thisPizzaBox)=>{
+    res.redirect('/myPizzaBoxes')
+  })
+  .catch((err)=>{
+    next(err);
+  })
+});
+
+pizzaBoxRouter.post("/myPizzaBoxes/delete", ensureLoggedIn('/'), (req, res, next)=>{
+  if(req.user.usertype !== 'Restaurant') {
+    res.redirect('/')
+    return; 
+  }
+  const theId = req.body.deadPizzaBoxId;
+  PizzaBox.findByIdAndRemove(theId)
+.then((response)=>{
+  res.redirect('/myPizzaBoxes')
+})
+.catch((err)=>{
+  next(err);
+})
+});
+
+
+
+
 
 module.exports = pizzaBoxRouter;

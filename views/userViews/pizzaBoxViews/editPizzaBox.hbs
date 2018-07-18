@@ -1,0 +1,67 @@
+<h1>Edit Pizza Box</h1>
+
+<form action = "/myPizzaBoxes/update" method = "post">
+
+
+
+<label for ="storetitle">Pizza Shop Name</label>
+<br>
+<input type = "text" id = "storetitle" value = "{{pizzabox.store}}" name = "store">
+<br>
+
+<label for = "imagesource">Upload an Image</label>
+<br>
+<input type = "text" id = "imagesource" value = {{pizzabox.imgsrc}} name = "imgsrc">
+<br>
+
+<label for = "pizzatitle">Pizza Name</label>
+<br>
+<input type = "text" id = "pizzatitle" value = "{{pizzabox.pizzaname}}" name = "pizzaname">
+<br>
+
+<label for = "description">Description</label>
+<br>
+<textarea cols= '40' rows= '10'id = "description" name = "description">{{pizzabox.description}}</textarea>
+<br>
+
+
+
+<label for = "origin">Starting Location</label>
+<br>
+<input type = "text" id = "origin" value = "{{pizzabox.originlocation}}" name = "originlocation">
+<br>
+
+<label for = "target">Target Location</label>
+<br>
+<input type = "text" id = "target" value = "{{pizzabox.targetlocation}}" name = "targetlocation">
+<br>
+
+
+{{!--Pizza Box id --}}
+<input type = 'hidden' value = {{pizzabox._id}} name = "pizzaboxid">
+
+
+{{!-- Pizza boxer: id of the person creating it. --}}
+<input type = 'hidden' value = {{user.id}} name = "userId">
+
+
+
+{{!-- The purchased by will be an update based on the person who buys it later on. --}}
+<input type = 'hidden' value = 'null' name = "purchasedby">
+
+
+
+<label for ="timer">How many minutes until pizza shouldn't be for sale?</label>
+<input type = 'number' min = '0' value = {{pizzabox.timelimit}} name = "timelimit">
+
+
+<input type = 'hidden' value = {{pizzabox.status}} name = "status">
+
+
+<button>Publish the Changes</button>
+</form>
+
+{{#if errorMessage }}
+    <div class="theError"><p>{{ errorMessage }}</p></div>
+{{/if}}
+
