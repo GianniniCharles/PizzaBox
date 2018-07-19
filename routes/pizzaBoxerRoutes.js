@@ -3,6 +3,9 @@ const pizzaBoxRouter   = express.Router();
 const PizzaBox         = require('../models/pizzabox');
 const passport     = require('passport');
 const ensureLoggedIn = require('connect-ensure-login').ensureLoggedIn;
+const uploadCloud = require('../config/cloudinary');
+const cloudinaryStorage = require('multer-storage-cloudinary');
+const multer = require('multer');
 
 
 pizzaBoxRouter.get('/newPizzaBox', ensureLoggedIn('/'), (req, res, next)=>{
@@ -15,14 +18,21 @@ pizzaBoxRouter.get('/newPizzaBox', ensureLoggedIn('/'), (req, res, next)=>{
 });
 
 
-pizzaBoxRouter.post('/newPizzaBox', ensureLoggedIn('/'), (req, res, next)=>{
+pizzaBoxRouter.post('/newPizzaBox', uploadCloud.single('photo'), ensureLoggedIn('/'), (req, res, next)=>{
   if(req.user.usertype !== 'Restaurant') {
     res.redirect('/')
     return; 
   }
 
-  const store = req.body.store;
-  const imgsrc = req.body.imgsrc;
+ 
+  
+  // let imgsrc = null;
+  // if (!req.file.url){
+  //  imgsrc = '../images/pizzaClipArt.jpeg';
+  // }
+  // const imgsrc = req.file.url;
+  const imgsrc = '../images/pizzaClipArt.jpeg';
+  const store = req.body.store;  
   const pizzaname = req.body.pizzaname;
   const description = req.body.description;
   const originlocation = req.body.originlocation;
@@ -32,7 +42,7 @@ pizzaBoxRouter.post('/newPizzaBox', ensureLoggedIn('/'), (req, res, next)=>{
   const timetolive = req.body.timelimit;
   const status = req.body.status;
   
-  if(store === ""||imgsrc === ""||pizzaname ===""||originlocation ===""||targetlocation ===""||pizzaboxer ===""||purchasedby ===""||timetolive ===""){
+  if(store === ""||pizzaname ===""||originlocation ===""||targetlocation ===""||pizzaboxer ===""||purchasedby ===""||timetolive ===""){
     
     res.render('userViews/pizzaBoxViews/newPizzaBox.hbs', {errorMessage: "Please fill in all fields."});
       return;

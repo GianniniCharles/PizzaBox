@@ -1,7 +1,7 @@
 
 <h1>New PizzaBox</h1>
 
-<form action = "/newPizzaBox" method = "post">
+<form action = "/newPizzaBox" method = "post" enctype="multipart/form-data">
 
 
 
@@ -12,7 +12,9 @@
 
 <label for = "imagesource">Upload an Image</label>
 <br>
-<input type = "text" id = "imagesource" name = "imgsrc">
+<input type = "file" name ="photo">
+<br>
+<br>
 <br>
 
 <label for = "pizzatitle">Pizza Name</label>
