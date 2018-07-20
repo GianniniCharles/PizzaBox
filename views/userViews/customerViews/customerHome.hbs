@@ -27,12 +27,17 @@ Feeling hungry?
 
     <p class="card-text">{{this.pizzaboxer.username}}</p>
 
-    <button class = "btn btn-success">Buy this PizzaBox</button>
+    <button onclick="myFunction()" id ="buyButton" class = "btn btn-success">Buy this PizzaBox</button>
+    <script>
+function myFunction() {
+ alert( "This is where you would confirm the sale and your card would get charged! To post your own pizzaboxes, you can register as a restaurant. Yay pizza!" );}
+</script>
+
+
     </div>
 
   </div>  
     {{/each}}
-
 
 
 
