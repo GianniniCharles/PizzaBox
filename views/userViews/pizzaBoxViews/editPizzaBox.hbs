@@ -3,38 +3,41 @@
 <form action = "/myPizzaBoxes/update" method = "post">
 
 
+<div class="form-group">
+<label class="bmd-label-floating" for ="storetitle">Pizza Shop Name</label>
+<input type = "text" id = "storetitle" class="form-control" value = "{{pizzabox.store}}" name = "store">
+</div>
 
-<label for ="storetitle">Pizza Shop Name</label>
-<br>
-<input type = "text" id = "storetitle" value = "{{pizzabox.store}}" name = "store">
-<br>
+<div class="form-group">
+<label class="bmd-label-floating" for = "imagesource">Upload an Image</label>
+<input type = "text" id = "imagesource" class="form-control" value = "{{pizzabox.imgsrc}}" name = "imgsrc">
+</div>
 
-<label for = "imagesource">Upload an Image</label>
-<br>
-<input type = "text" id = "imagesource" value = "{{pizzabox.imgsrc}}" name = "imgsrc">
-<br>
 
-<label for = "pizzatitle">Pizza Name</label>
-<br>
-<input type = "text" id = "pizzatitle" value = "{{pizzabox.pizzaname}}" name = "pizzaname">
-<br>
+<div class="form-group">
+<label class="bmd-label-floating" for = "pizzatitle">Pizza Name</label>
+<input type = "text" class="form-control" id = "pizzatitle" value = "{{pizzabox.pizzaname}}" name = "pizzaname">
+</div>
 
+
+<div class="form-group">
+    <label for = "pizzaprice" class="bmd-label-floating">$ Price</label>
+    <input type = "number" id = "pizzaprice" value = {{pizzabox.price}} min="0" class="form-control"name = "price">
+ </div>
+<br>
+<div class="form-group">
 <label for = "description">Description</label>
-<br>
-<textarea cols= '40' rows= '10'id = "description" name = "description">{{pizzabox.description}}</textarea>
-<br>
+<textarea class="form-control" cols= '40' rows= '10'id = "description" name = "description">{{pizzabox.description}}</textarea>
+</div>
 
 
 
-<label for = "origin">Starting Location</label>
-<br>
-<input type = "text" id = "origin" value = "{{pizzabox.originlocation}}" name = "originlocation">
-<br>
+<input type = "hidden" id = "origin" value = "{{pizzabox.originlocation}}" name = "originlocation">
 
-<label for = "target">Target Location</label>
-<br>
-<input type = "text" id = "target" value = "{{pizzabox.targetlocation}}" name = "targetlocation">
-<br>
+
+
+<input type = "hidden" id = "target" value = "{{pizzabox.targetlocation}}" name = "targetlocation">
+
 
 
 {{!--Pizza Box id --}}
@@ -51,8 +54,6 @@
 
 
 
-<label for ="timer">How many minutes until pizza shouldn't be for sale?</label>
-<input type = 'number' min = '0' value = {{pizzabox.timelimit}} name = "timelimit">
 
 
 <input type = 'hidden' value = {{pizzabox.status}} name = "status">

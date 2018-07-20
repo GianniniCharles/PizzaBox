@@ -1,26 +1,38 @@
-<div class = "centerMe fontLarger">
+<div class="m-scene" id="main">
+  <div class="m-header scene_element scene_element--fadein">
 
-<h1>Welcome, {{user.username}}</h1>
+         <div class = "centerMe fontLarger">
 
-<br>
-<span>Got some food to sell, fast?</span>
-<br>
-<br>
-<span>Create a pizzabox and all nearby users will be able to see it!</span>
-
-<br>
-<br>
-<a class = "btn btn-primary" href ='/newPizzaBox'>Create a new pizzabox</a>
-<br>
-<br>  
+      <h1>Welcome, {{user.username}}</h1>
+</div> 
+{{!-- End fade in --}}
 
 
-<a class = "btn btn-primary" href ='/myPizzaBoxes'>See my pizzaboxes</a>
-<br>
-<br>  
+<div class="m-page scene_element centerMe fontLarger scene_element--fadeinup">
+
+    <br>
+    <span>Got some food to sell, fast?</span>
+    <br>
+    <br>
+    <span>Create a pizzabox and all nearby users will be able to see it!</span>
+
+    <br>
+    <br>
+    <a class = "btn btn-primary" href ='/newPizzaBox'>Create a new pizzabox</a>
+    <br>
+    <br>  
 
 
- <a class = "btn btn-primary" href="/myAccount">Settings</a>
-<br>
-<br>  
+    <a class = "btn btn-primary" href ='/myPizzaBoxes'>See my pizzaboxes</a>
+    <br>
+    <br>  
+
+
+    <a class = "btn btn-primary" href="/myAccount">Settings</a>
+    <br>
+    <br>  
+
+  </div> 
+  {{!-- end fade up --}}
  </div>
+ {{!-- end mscene --}}

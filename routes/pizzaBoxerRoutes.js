@@ -60,14 +60,15 @@ pizzaBoxRouter.post('/newPizzaBox', uploadCloud.single('photo'), ensureLoggedIn(
   const purchasedby = req.body.purchasedby;
   const timetolive = req.body.timelimit;
   const status = req.body.status;
+  const price = req.body.price;
   
-  if(store === ""||pizzaname ===""||pizzaboxer ===""||purchasedby ===""||timetolive ===""){
+  if(store === ""||pizzaname ===""||pizzaboxer ===""||purchasedby ===""||timetolive ===""||price ===""){
     
     res.render('userViews/pizzaBoxViews/newPizzaBox.hbs', {css: ['style.css'], user:req.user, errorMessage: "Please fill in all fields."});
       return;
   }
 
-  PizzaBox.create({store: store, imgsrc: imgsrc, pizzaname: pizzaname, description: description, originlocation: originlocation, targetlocation: targetlocation, pizzaboxer: pizzaboxer, purchasedby: purchasedby, timelimit:timetolive, status: status})
+  PizzaBox.create({store: store, imgsrc: imgsrc, pizzaname: pizzaname, description: description, originlocation: originlocation, targetlocation: targetlocation, pizzaboxer: pizzaboxer, purchasedby: purchasedby, timelimit:timetolive, status: status, price:price})
   .then((response)=>{
     console.log("--------------------------------------------- Completed");
     res.redirect('/myPizzaBoxes');
@@ -88,7 +89,7 @@ pizzaBoxRouter.get('/myPizzaBoxes',ensureLoggedIn('/'), (req, res, next)=>{
   
 PizzaBox.find({
   pizzaboxer: req.user._id// Here put the proper query selector that works in compass: remember. it's gonna be req.user._id
-})
+}).populate('User', 'username')
 .then((myPizzaBoxes)=>{
   res.render('userViews/pizzaBoxViews/myPizzaBoxes.hbs', {user: req.user, myPizzaBoxes, css: ['style2.css']});
 })
@@ -107,7 +108,7 @@ pizzaBoxRouter.post("/myPizzaBoxes/edit", ensureLoggedIn('/'), (req, res, next)=
   const theId = req.body.id;
   PizzaBox.findById(theId)
   .then((thisPizzaBox)=>{
-    res.render('userViews/pizzaBoxViews/editPizzaBox', {user: req.user, css: ['style.css'], pizzabox: thisPizzaBox})
+    res.render('userViews/pizzaBoxViews/editPizzaBox', {user: req.user, css: ['style2.css'], pizzabox: thisPizzaBox})
   })
 
 
@@ -130,6 +131,7 @@ pizzaBoxRouter.post("/myPizzaBoxes/update", ensureLoggedIn('/'), (req, res, next
   purchasedby: req.body.purchasedby,
   timetolive: req.body.timelimit,
   status: req.body.status,
+  price: req.body.price,
   })
   .then((thisPizzaBox)=>{
     res.redirect('/myPizzaBoxes')

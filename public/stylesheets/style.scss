@@ -120,6 +120,18 @@ label, input, {
   text-align: center;
 }
 
+// .beCentered {
+// display: flex;
+// justify-content: center;}
+
+.vCenterMe {
+  position: relative;
+  top: 30vh;
+}
+
+.makeMeBig p{
+  font-size: 1.4em;
+}
 .theError {
   color: red;
 }

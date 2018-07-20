@@ -8,24 +8,21 @@
 
 
 
+
+
 {{#each myPizzaBoxes}}
 {{!-- Change the THIS to a card containing the store, image, pizza name, and time left --}}
 
-<div class = "row">
-<div class = "col-m-5">
-  </div>
 
-
-
-
-<div class= "col-m-2">
-<div class="card centerMe" style="width: 20rem;">
+<div class="card centerMe mx-auto" style="width: 20rem;">
   <h4 class="card-title">{{this.pizzaname}}</h4>
   <img class="card-img-top img-responsive mx-auto" src="{{this.imgsrc}}" alt="Card image cap">
   <div class="card-body">
     <h6 class="card-subtitle mb-2 text-muted">Where it's from: {{this.store}}</h6>
     <p class="card-text">"{{this.description}}"</p>
-    <p class="card-text">{{this.pizzaboxer}}</p>
+        <p class="card-text">"${{this.price}}.00"</p>
+
+    <p class="card-text">{{this.pizzaboxer.username}}</p>
 
 <form action = "/myPizzaBoxes/edit" method = "post">
     <input type = "hidden" value ="{{this._id}}" name ="id">
@@ -38,8 +35,6 @@
   </form>
   </div>
  
-</div>
-</div> {{!-- end col 2 --}}
 
 
 

@@ -65,6 +65,13 @@ label, input {
 .centerMe, #centerMe {
   text-align: center; }
 
+.vCenterMe {
+  position: relative;
+  top: 30vh; }
+
+.makeMeBig p {
+  font-size: 1.4em; }
+
 .theError {
   color: red; }
 

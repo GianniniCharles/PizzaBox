@@ -1,37 +1,32 @@
-<div class = "">
+
+
+
+
+<div class = "centerMe">
 <h1> Welcome, {{user.username}}</h1>
 
 Feeling hungry?
 
-We can watch for any abandoned pizzas and alert you.
-
-<p>Turn on the pizza scanner to get a notification when a pizza is nearby!</p>
-
-
-
-
- {{!-- I can also put this entire big div in a partial if that turns out to be more useful --}}
-
 {{#if activePizzaBoxes}}
-<div class="barrier">
-  <h3>There are pizza boxes up for grabs!</h3>
+
+  <h3>There are PizzaBoxes up for grabs!</h3>
+
+  </div>
     {{#each activePizzaBoxes}}
-      <div class = "pizzaCard"> 
-     
-  <h3>{{this.store}}</h3>
-  <img src="{{this.imgsrc}}" alt="pizzaDefault" style="width:100px">
-  <br>
-  {{this.pizzaname}}
-  <br>
-  {{this.pizzaboxer.name}}
-  <br>
- {{this.description}}
- <br>
- Time Remaining: {{this.timelimit}} minutes.
+<div class="card centerMe mx-auto" style="width: 20rem;">
+  <h4 class="card-title">{{this.pizzaname}}</h4>
+  <img class="card-img-top img-responsive mx-auto" src="{{this.imgsrc}}" alt="Card image cap">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted">Where it's from: {{this.store}}</h6>
+    <p class="card-text">"{{this.description}}"</p>
+        <p class="card-text">"${{this.price}}.00"</p>
 
- {{this}}
+    <p class="card-text">{{this.pizzaboxer.username}}</p>
 
-</div>
+    <button class = "btn btn-success">Buy this PizzaBox</button>
+    </div>
+
+  </div>  
     {{/each}}
 
 
@@ -39,6 +34,11 @@ We can watch for any abandoned pizzas and alert you.
 
 
 
-</div>
-</div>
 {{/if}}
+
+
+
+
+
+<div class= "barrier">
+</div>

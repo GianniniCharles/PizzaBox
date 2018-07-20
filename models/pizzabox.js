@@ -14,6 +14,7 @@ const pizzaBoxSchema = new Schema({
   purchased_by: {type: Schema.Types.ObjectId, ref: 'User'},
   timelimit: String,
   status: String,
+  price: Number,
 
 },
 {timestamps: true}  
