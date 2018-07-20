@@ -3,19 +3,25 @@
 <h1>{{title}}</h1>
 
 
-<form action = "/login" method = "post">
-<input type = 'text' name = 'username' id = 'user-input' placeholder = 'username'>
-<input type = 'password' name = 'password' id = 'password-input' placeholder = 'password'>
-<p><a href = '/recover'>Forgot password?</a></p>
 
-<button type = 'submit'>Login</button>
+<div class="form-group">
+    <form action = "/login" method = "post">
+    <input type = 'text' class="form-control" name = 'username' id = 'user-input' placeholder = 'username'>
+    
+    <input type = 'password' class="form-control" name = 'password' id = 'password-input' placeholder = 'password'>
+<br>
+<button class="btn btn-primary" type = 'submit'>Login</button>
 
 </form>
 
 {{#if message }}
     <div class="theError">{{ message }}</div>
 {{/if}}
+              </div>
 
+
+<br>
+<a href ="/mapsTest">Test the Google Maps API</a>
 
 <footer>
 <p>Don't have an account? <a href = '/signup'>Register here</a></p>

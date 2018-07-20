@@ -7,13 +7,19 @@ body {
   background-position: center;
   
 
-  color: white;
-  
+  color: white !important;
 }
 
-a {
-  color: #00B7FF;
+label, input, { 
+  color: white!important;
 }
+
+a{
+  color: rgb(0, 68, 255)!important;
+}
+
+
+
 
 
 .theError {

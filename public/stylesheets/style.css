@@ -5,10 +5,13 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  color: white; }
+  color: white !important; }
+
+label, input {
+  color: white !important; }
 
 a {
-  color: #00B7FF; }
+  color: #0044ff !important; }
 
 .theError {
   color: red; }

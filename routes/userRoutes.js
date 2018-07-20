@@ -6,6 +6,12 @@ const passport     = require('passport');
 const ensureLoggedIn = require('connect-ensure-login').ensureLoggedIn;
 const PizzaBox         = require('../models/pizzabox');
 
+
+userRouter.get('/mapsTest', (req, res, next)=>{
+
+  res.render('maptest');
+})
+
 userRouter.get('/signup', (req, res, next)=>{
 
     res.render('userViews/signupPage');
@@ -15,6 +21,7 @@ userRouter.post("/signup", (req, res, next)=>{
     const password = req.body.password;
     const username = req.body.username;
     const usertype = req.body.usertype;
+    const creditcard = req.body.creditcard;
     if(password === "" || username === ""){
       res.render('userViews/signupPage', {errorMessage: "Please fill in both a username and password to proceed."});
       return;
@@ -36,7 +43,7 @@ userRouter.post("/signup", (req, res, next)=>{
       const hashedPassword = bcrypt.hashSync(password, salt);
   
       //now we create users/password objects
-      User.create({username: username, password: hashedPassword, usertype: usertype})
+      User.create({username: username, password: hashedPassword, usertype: usertype, creditcard: creditcard})
       .then((response)=>{
         console.log("---------------------------------------------");
         res.redirect('/');
@@ -63,9 +70,9 @@ userRouter.post("/login", passport.authenticate("local", {
   }));
 
 
-userRouter.get('/login', (req, res, next)=>{
-    res.render('userViews/loginPage');
-});
+// userRouter.get('/login', (req, res, next)=>{
+//     res.render('userViews/loginPage');
+// });
 
 // userRouter.post('/login', (req, res, next)=>{
 //     const theUsername = req.body.theUsername;
@@ -115,8 +122,15 @@ userRouter.get("/home/", ensureLoggedIn('/'), (req, res, next)=>{
 
 
 
+userRouter.get("/myAccount", (req, res, next)=>{
+  res.render('userViews/myAccount', {user: req.user})
+})
 
-userRouter.get("/logout", (req, res, next) => {
+
+
+
+
+userRouter.get("/logout", ensureLoggedIn('/'), (req, res, next) => {
     req.logout();
     res.redirect("/");
   });

@@ -4,42 +4,40 @@
 <form action = "/newPizzaBox" method = "post" enctype="multipart/form-data">
 
 
+<div class="form-group">
+    <label for ="storetitle" class="bmd-label-floating">Pizza Shop Name</label>
+    <input type = "text" id = "storetitle" class="form-control"name = "store">
+</div>
 
-<label for ="storetitle">Pizza Shop Name</label>
+
+
+<div class="form-group">
+    <label for = "pizzatitle" class="bmd-label-floating">Pizza Name</label>
+    <input type = "text" id = "pizzatitle" class="form-control"name = "pizzaname">
+    {{!-- <span class="bmd-help turn-white">What kind of pizza is it?</span> --}}
+ </div>
+
+
 <br>
-<input type = "text" id = "storetitle" name = "store">
-<br>
+
+<div class="form-group">
+<label for = "description">Description</label>
+<textarea class="form-control" cols= '40' rows= '3'id = "description" name = "description"></textarea>
+</div>
+
+
+
+<input type = "hidden" id = "origin" name = "originlocation">
+
+
+<input type = "hidden" id = "target" name = "targetlocation">
+
+
 
 <label for = "imagesource">Upload an Image</label>
 <br>
 <input type = "file" name ="photo">
 <br>
-<br>
-<br>
-
-<label for = "pizzatitle">Pizza Name</label>
-<br>
-<input type = "text" id = "pizzatitle" name = "pizzaname">
-<br>
-
-<label for = "description">Description</label>
-<br>
-<textarea cols= '40' rows= '10'id = "description" name = "description"></textarea>
-<br>
-
-
-
-<label for = "origin">Starting Location</label>
-<br>
-<input type = "text" id = "origin" name = "originlocation">
-<br>
-
-<label for = "target">Target Location</label>
-<br>
-<input type = "text" id = "target" name = "targetlocation">
-<br>
-
-
 
 
 {{!-- Pizza boxer: id of the person creating it. --}}
@@ -51,14 +49,14 @@
 
 
 
-<label for ="timer">How long until pizza shouldn't be sold?</label>
-<input type = 'number' min = '0' value = '300' name = "timelimit">
+{{!-- <label for ="timer">How long until pizza shouldn't be sold?</label>
+<input type = 'number' min = '0' value = '300' name = "timelimit"> --}}
 
 
 <input type = 'hidden' value = 'active' name = "status">
 
-
-<button>Put my pizza for sale!</button>
+<br>
+<button class="btn btn-primary">Put my pizza for sale!</button>
 </form>
 
 {{#if errorMessage }}

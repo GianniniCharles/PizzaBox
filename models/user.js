@@ -6,6 +6,7 @@ const userSchema = new Schema({
     username: String,
     password: String,
     usertype: String,
+    creditcard: String,
   
   },
     {timestamps: true}
