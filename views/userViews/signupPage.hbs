@@ -1,34 +1,46 @@
+
+
+<div class = "centerMe">
+<h1 class ="centerMe">Register</h1>
+<p>Sign up to get great food at a greater price.</p>
+
+</div>
+
 {{#if errorMessage}}
 <div class = "theError">{{errorMessage}}</div>
 {{/if}}
-
-<h1>Register</h1>
-<p>Sign up to get great food at a greater price.</p>
-
 <form action="/signup" method="post">
 
-    <label for="username">Username</label>
-    <input id="username" type="text" name="username">
-    <br>
-    <label for="password">Password</label>
-    <input id="password" name="password" type="password">
-    <br>
-<label for ='user-type'>I am a ...</label>
-    <select id='user-type' name="usertype">
+<div class ="form-group">
+    <label class="bmd-label-floating" for="username">Username</label>
+    <input  class="form-control"  id="username" type="text" name="username">
+
+</div>
+<div class ="form-group">
+    <label class="bmd-label-floating" for="password">Password</label>
+    <input  class="form-control" id="password" name="password" type="password">
+    
+</div>
+
+<div class ="form-group">
+<label class="bmd-label-floating" for ='user-type'>I am a ...</label>
+    <select class ="whitetext centerMe form-control selectpicker" data-style="btn btn-link" id='user-type' name="usertype">
     <option value="null"></option>
     <option value="Customer">Customer</option>
     <option value="Restaurant">Restaurant</option>
     </select>
-<br>
-<label for ='thecard'>Credit Card</label>
-    <input type="text" id="thecard" name="creditcard" value="XXXXXXXXXXXX3059" readonly="readonly" />
-<br>
-    <button>Submit</button>
+</div>
+
+<div class = "centerMe">
+    <input type="hidden" id="thecard" name="creditcard" value="XXXXXXXXXXXX3059" readonly="readonly" />
+
+    <button id ="centerMe" class ="btn btn-primary">Submit</button>
 
 </form>
 
 
 
 <footer>
-<p>Already have an account? <a href = '/'>Login here</a></p>
+<span class = "mx-auto centerMe">Already have an account? <a class = "badge badge-primary" href = '/'>Login here</a></span>
 </footer>
+</div>

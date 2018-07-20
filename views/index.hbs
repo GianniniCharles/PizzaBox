@@ -1,36 +1,28 @@
-<div class= "container darkBackground">
-    <div class = "row">
-    
-<div class = "col-m-12 mx-auto whitetext">
-
+<div class ="centerMe">
 <h1>{{title}}</h1>
 
-
+{{#if message }}
+            <div class="theError">{{ message }}</div>
+        {{/if}}
 
 <div class="form-group">
-    <form action = "/login" method = "post">
-    <input type = 'text' class="form-control" name = 'username' id = 'user-input' placeholder = 'username'>
-    
-    <input type = 'password' class="form-control" name = 'password' id = 'password-input' placeholder = 'password'>
-<br>
-<button class="btn btn-primary" type = 'submit'>Login</button>
+            <form action = "/login" method = "post">
+            <input type = 'text' class="form-control" name = 'username'  placeholder = 'username'>
+            
+            <input type = 'password' class="form-control" name = 'password' placeholder = 'password'>
+        <br>
+        <button class="btn btn-primary" type = 'submit'>Login</button>
+        </form>
 
-</form>
-
-{{#if message }}
-    <div class="theError">{{ message }}</div>
-{{/if}}
-              </div>
+        
+</div>     
 
 
 <br>
 <p><a class ="badge badge-primary" href ="/mapsTest">Test the Google Maps API</a></p>
 
 <footer>
-<p>Don't have an account? <a class ="badge badge-primary" href = '/signup'>Register here</a></p>
+<span>Don't have an account? <a class ="badge badge-primary" href = '/signup'>Register here</a></span>
 </footer>
 
-</div>{{!-- end col --}}
-
-</div>{{!-- end row --}}
-</div>{{!-- end container --}}
+</div>{{!-- end centerMe --}}
