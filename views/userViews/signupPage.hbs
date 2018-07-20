@@ -1,46 +1,52 @@
 
 
-<div class = "centerMe">
-<h1 class ="centerMe">Register</h1>
-<p>Sign up to get great food at a greater price.</p>
-
-</div>
-
-{{#if errorMessage}}
-<div class = "theError">{{errorMessage}}</div>
-{{/if}}
-<form action="/signup" method="post">
-
-<div class ="form-group">
-    <label class="bmd-label-floating" for="username">Username</label>
-    <input  class="form-control"  id="username" type="text" name="username">
-
-</div>
-<div class ="form-group">
-    <label class="bmd-label-floating" for="password">Password</label>
-    <input  class="form-control" id="password" name="password" type="password">
+<div class = "m-scene" id="main">
     
-</div>
+  <div class="m-aside scene_element scene_element--fadein">
 
-<div class ="form-group">
-<label class="bmd-label-floating" for ='user-type'>I am a ...</label>
-    <select class ="whitetext centerMe form-control selectpicker" data-style="btn btn-link" id='user-type' name="usertype">
-    <option value="null"></option>
-    <option value="Customer">Customer</option>
-    <option value="Restaurant">Restaurant</option>
-    </select>
-</div>
+        <h1 class ="centerMe">Register</h1>
+        <p>Sign up to get great food at a greater price.</p>
 
-<div class = "centerMe">
-    <input type="hidden" id="thecard" name="creditcard" value="XXXXXXXXXXXX3059" readonly="readonly" />
+    </div>
 
-    <button id ="centerMe" class ="btn btn-primary">Submit</button>
+<div class="m-right-panel m-page scene_element scene_element--fadeinright">
 
-</form>
+    {{#if errorMessage}}
+    <div class = "theError">{{errorMessage}}</div>
+    {{/if}}
+    <form action="/signup" method="post">
+
+    <div class ="form-group">
+        <label class="bmd-label-floating" for="username">Username</label>
+        <input  class="form-control"  id="username" type="text" name="username">
+
+    </div>
+    <div class ="form-group">
+        <label class="bmd-label-floating" for="password">Password</label>
+        <input  class="form-control" id="password" name="password" type="password">
+        
+    </div>
+
+    <div class ="form-group">
+    <label class="bmd-label-floating" for ='user-type'>I am a ...</label>
+        <select class ="whitetext centerMe form-control selectpicker" data-style="btn btn-link" id='user-type' name="usertype">
+        <option value="null"></option>
+        <option value="Customer">Customer</option>
+        <option value="Restaurant">Restaurant</option>
+        </select>
+    </div>
+
+    <div class = "centerMe">
+        <input type="hidden" id="thecard" name="creditcard" value="XXXXXXXXXXXX3059" readonly="readonly" />
+
+        <button id ="centerMe" class ="btn btn-primary">Submit</button>
+
+    </form>
 
 
 
-<footer>
-<span class = "mx-auto centerMe">Already have an account? <a class = "badge badge-primary" href = '/'>Login here</a></span>
-</footer>
-</div>
+    <footer>
+    <span class = "mx-auto centerMe">Already have an account? <a class = "badge badge-primary" href = '/'>Login here</a></span>
+    </footer>
+    </div> {{!-- end the right transition--}}
+</div>{{!-- end m scene main--}}

@@ -1,9 +1,14 @@
-<div class ="centerMe">
+<div class ="centerMe m-scene" id="main">
+
+      <div class="m-header scene_element scene_element--fadein">
+
 <h1>{{title}}</h1>
 
 {{#if message }}
             <div class="theError">{{ message }}</div>
         {{/if}}
+
+<div class="m-page scene_element scene_element--fadeinup">
 
 <div class="form-group">
             <form action = "/login" method = "post">
@@ -24,5 +29,7 @@
 <footer>
 <span>Don't have an account? <a class ="badge badge-primary" href = '/signup'>Register here</a></span>
 </footer>
-
-</div>{{!-- end centerMe --}}
+</div>
+  </div>
+  {{!-- end mpage fade up --}}
+</div>{{!-- end centerMe & Mscene--}}
