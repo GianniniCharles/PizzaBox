@@ -1,11 +1,15 @@
 
-
+<div class="m-scene centerMe" id="main">
+  <div class="m-right-panel m-page scene_element scene_element--fadeinup">
 
 
 <div class = "centerMe">
 <h1> Welcome, {{user.username}}</h1>
 
 Feeling hungry?
+</div>
+{{!-- end fade in --}}
+
 
 {{#if activePizzaBoxes}}
 
@@ -13,7 +17,7 @@ Feeling hungry?
 
   </div>
     {{#each activePizzaBoxes}}
-<div class="card centerMe mx-auto" style="width: 20rem;">
+<div class="card centerMe mx-auto m-right-panel m-page scene_element scene_element--fadeinup" style="width: 20rem;">
   <h4 class="card-title">{{this.pizzaname}}</h4>
   <img class="card-img-top img-responsive mx-auto" src="{{this.imgsrc}}" alt="Card image cap">
   <div class="card-body">
@@ -36,9 +40,12 @@ Feeling hungry?
 
 {{/if}}
 
-
+<div>
+  {{!-- end fade up --}}
 
 
 
 <div class= "barrier">
 </div>
+</div>
+  {{!-- end mscene --}}

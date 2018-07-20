@@ -1,3 +1,7 @@
+<div class = "m-scene" id="main">
+  <div class="m-page scene_element scene_element--fadeinup">
+
+
 <h1>Edit Pizza Box</h1>
 
 <form action = "/myPizzaBoxes/update" method = "post">
@@ -59,10 +63,14 @@
 <input type = 'hidden' value = {{pizzabox.status}} name = "status">
 
 
-<button>Publish the Changes</button>
+<button class = "btn btn-primary">Publish the Changes</button>
 </form>
 
 {{#if errorMessage }}
     <div class="theError"><p>{{ errorMessage }}</p></div>
 {{/if}}
 
+  </div>
+  {{!-- end fadeup --}}
+</div>
+{{!-- end mscene --}}

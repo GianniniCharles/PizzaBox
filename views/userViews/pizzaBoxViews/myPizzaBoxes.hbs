@@ -1,4 +1,8 @@
-<div class= "centerMe">
+<div class = "m-scene" id="main">
+ 
+
+
+<div class= "centerMe m-header scene_element scene_element--fadein">
 <h1>Hi there, {{user.username}}</h1>
 <h2>Here are your pizza boxes</h2>
 
@@ -8,7 +12,7 @@
 
 
 
-
+<div class="m-right-panel m-page scene_element scene_element--fadeinright">
 
 {{#each myPizzaBoxes}}
 {{!-- Change the THIS to a card containing the store, image, pizza name, and time left --}}
@@ -58,7 +62,10 @@
 
 
   {{/each}}
+
+  </div>
      
+  </div>
 <div class= "barrier">
   </div>
   
