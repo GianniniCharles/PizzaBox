@@ -18,11 +18,10 @@ const flash             = require('connect-flash');
 const ensureLogin       = require('connect-ensure-login');
 const User              = require('./models/user')
 
-      
-      
+// 'mongodb://localhost/PizzaBox'
 mongoose.Promise = Promise;
 mongoose      
-  .connect('mongodb://localhost/PizzaBox', {useMongoClient: true})
+  .connect(process.env.MONGODB_URI, {useMongoClient: true})
   .then(() => {
     console.log('Connected to Mongo!')
   }).catch(err => {
