@@ -1,36 +1,69 @@
+<div class= "centerMe">
 <h1>Hi there, {{user.username}}</h1>
 <h2>Here are your pizza boxes</h2>
 
-<a href ="/newPizzaBox">Add a new PizzaBox</a>
+<a class = "btn btn-primary" href ="/newPizzaBox">Add a new PizzaBox</a>
+
+</div>
+
+
+
 {{#each myPizzaBoxes}}
 {{!-- Change the THIS to a card containing the store, image, pizza name, and time left --}}
-<div class ="pizzaCard">
-  <h3>{{this.store}}</h3>
-  <img src="{{this.imgsrc}} " alt="pizzaDefault" style="width:100px">
-  <br>
-  {{this.pizzaname}}
-  <br>
-  {{this.pizzaboxer.name}}
 
-  <form action = "/myPizzaBoxes/edit" method = "post">
-    <input type = "hidden" value ="{{this._id}}" name ="id">
-    <button>Edit this PizzaBox</button>
-  </form>
-  <br>
-  <form action = "/myPizzaBoxes/delete" method = "post">
-    <input type = "hidden" value ="{{this._id}}" name ="deadPizzaBoxId">
-    <button>Delete this PizzaBox</button>
-  </form>
+<div class = "row">
+<div class = "col-m-5">
   </div>
 
-  {{!-- <a href = "/update/{{this._id}}">Update this pizzabox</a>
-  <form action = "/delete/{{this._id}}" method = "get">
-    <button>Delete this Pizzabox
-    <button>
-  </form> --}}
 
-  {{!-- href to show page --}}
-  {{!-- href to update page --}}
-  {{!-- href to delete page --}}
-{{/each}}
+
+
+<div class= "col-m-2">
+<div class="card centerMe" style="width: 20rem;">
+  <h4 class="card-title">{{this.pizzaname}}</h4>
+  <img class="card-img-top img-responsive mx-auto" src="{{this.imgsrc}}" alt="Card image cap">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted">Where it's from: {{this.store}}</h6>
+    <p class="card-text">"{{this.description}}"</p>
+    <p class="card-text">{{this.pizzaboxer}}</p>
+
+<form action = "/myPizzaBoxes/edit" method = "post">
+    <input type = "hidden" value ="{{this._id}}" name ="id">
+    <button class= "btn btn-primary">Edit this PizzaBox</button>
+  </form>
+
+  <form action = "/myPizzaBoxes/delete" method = "post">
+    <input type = "hidden" value ="{{this._id}}" name ="deadPizzaBoxId">
+    <button class = "btn btn-danger">Delete this PizzaBox</button>
+  </form>
+  </div>
+ 
+</div>
+</div> {{!-- end col 2 --}}
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  {{/each}}
      
+<div class= "barrier">
+  </div>
+  

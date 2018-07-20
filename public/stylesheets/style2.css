@@ -1,0 +1,116 @@
+/* THIS CSS FILE IS FOR ANYWHERE THERE ARE A LOT OF PIZZA CARDS */
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 100%, 0); }
+  100% {
+    opacity: 1;
+    transform: none; } }
+
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    transform: translate3d(100%, 0, 0); }
+  100% {
+    opacity: 1;
+    transform: none; } }
+
+/*
+ * CSS Page Transitions
+ */
+.m-scene {
+  /** Basic styles for an animated element */
+  /** An element that fades in */
+  /** An element that fades in and slides up */
+  /** An element that fades in and slides from the right */
+  /** Reverse "exit" animations */ }
+  .m-scene .scene_element {
+    animation-duration: 0.25s;
+    transition-timing-function: ease-in;
+    animation-fill-mode: both; }
+  .m-scene .scene_element--fadein {
+    animation-name: fadeIn; }
+  .m-scene .scene_element--fadeinup {
+    animation-name: fadeInUp; }
+  .m-scene .scene_element--fadeinright {
+    animation-name: fadeInRight; }
+  .m-scene.is-exiting .scene_element {
+    animation-direction: alternate-reverse; }
+
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("/images/pizzaBoxBackground.jpeg") fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+  width: 100vw;
+  color: white !important; }
+
+label, input {
+  color: white !important; }
+
+.fontLarger {
+  font-size: 2em; }
+
+.flexlife {
+  display: flex;
+  justify-content: space-evenly; }
+
+.centerMe, #centerMe {
+  text-align: center; }
+
+.theError {
+  color: red; }
+
+.whitetext, #whitetext {
+  color: white !important; }
+
+#whitetext {
+  padding: 30px !important; }
+
+#description {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+  font-size: 1.3em; }
+
+.pizzaCard {
+  background-color: rgba(0, 0, 0, 0.6); }
+
+nav, .myNav {
+  background-color: #9C27B5;
+  position: fixed;
+  left: 0vw;
+  bottom: 0vw;
+  height: 8vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-around; 
+}
+
+.barrier {
+  padding-bottom: 15vh;
+}
+
+.centerText {
+  text-align: center;
+  font-size: 2em;
+}
+
+.centerText * {
+font-size: 1.2em;
+}
+
+.card img {
+  max-width: 125px;
+  max-height: 125px;
+}
+/*# sourceMappingURL=style.css.map */

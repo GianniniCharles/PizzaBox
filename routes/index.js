@@ -9,7 +9,7 @@ router.get('/', (req, res, next) => {
   res.redirect('/home');
   return;
   }
-  res.render('index', {theUser: req.user});
+  res.render('index', {theUser: req.user ,css: ['style.css']});
 });
 
 

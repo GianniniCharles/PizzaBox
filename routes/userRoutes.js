@@ -14,7 +14,7 @@ userRouter.get('/mapsTest', (req, res, next)=>{
 
 userRouter.get('/signup', (req, res, next)=>{
 
-    res.render('userViews/signupPage');
+    res.render('userViews/signupPage', {css: ['style.css']});
 })
 
 userRouter.post("/signup", (req, res, next)=>{
@@ -23,19 +23,19 @@ userRouter.post("/signup", (req, res, next)=>{
     const usertype = req.body.usertype;
     const creditcard = req.body.creditcard;
     if(password === "" || username === ""){
-      res.render('userViews/signupPage', {errorMessage: "Please fill in both a username and password to proceed."});
+      res.render('userViews/signupPage', {css: ['style.css'], errorMessage: "Please fill in both a username and password to proceed."});
       return;
     }
 
     if (usertype === "null") {
-      res.render('userViews/signupPage', {errorMessage: "Please choose what type of user you are"});
+      res.render('userViews/signupPage', {css: ['style.css'], errorMessage: "Please choose what type of user you are"});
     return;
     }
   
     User.findOne({'username': username})
     .then((response)=>{
       if(response !== null){
-        res.render('userViews/signupPage', {errorMessage: `Sorry ${username} is taken, please select another name.`});
+        res.render('userViews/signupPage', {css: ['style.css'], errorMessage: `Sorry ${username} is taken, please select another name.`});
         return;
       } //ends IF statement
   
@@ -58,7 +58,7 @@ userRouter.post("/signup", (req, res, next)=>{
 
 
 userRouter.get("/login", (req, res, next) => {
-    res.render("index", {"message":req.flash("error")});
+    res.render("index", {css: ['style.css'], "message":req.flash("error")});
   });
   
 
@@ -103,7 +103,7 @@ userRouter.post("/login", passport.authenticate("local", {
 userRouter.get("/home/", ensureLoggedIn('/'), (req, res, next)=>{
   
   if (req.user.usertype === "Restaurant") {
-    res.render('userViews/pizzaBoxViews/pizzaBoxHome', {user: req.user});
+    res.render('userViews/pizzaBoxViews/pizzaBoxHome', {css: ['style.css'], user: req.user});
   }
   
   if (req.user.usertype === "Customer") {
@@ -112,7 +112,7 @@ userRouter.get("/home/", ensureLoggedIn('/'), (req, res, next)=>{
       status: "active"
     })
     .then((activePizzaBoxes)=>{
-      res.render('userViews/customerViews/customerHome', {user: req.user, activePizzaBoxes, blah});
+      res.render('userViews/customerViews/customerHome', {user: req.user, activePizzaBoxes, css: ['style2.css']});
     })
     .catch((err)=>{
       next(err);
@@ -124,7 +124,7 @@ userRouter.get("/home/", ensureLoggedIn('/'), (req, res, next)=>{
 
 
 userRouter.get("/myAccount", (req, res, next)=>{
-  res.render('userViews/myAccount', {user: req.user})
+  res.render('userViews/myAccount', {css: ['style.css'], user: req.user})
 })
 
 

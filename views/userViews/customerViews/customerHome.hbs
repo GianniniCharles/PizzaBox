@@ -11,7 +11,9 @@ We can watch for any abandoned pizzas and alert you.
 
 
  {{!-- I can also put this entire big div in a partial if that turns out to be more useful --}}
-<div>
+
+{{#if activePizzaBoxes}}
+<div class="barrier">
   <h3>There are pizza boxes up for grabs!</h3>
     {{#each activePizzaBoxes}}
       <div class = "pizzaCard"> 
@@ -33,14 +35,10 @@ We can watch for any abandoned pizzas and alert you.
     {{/each}}
 
 
-      <a href="/myAccount">Settings</a>
 
 
-
-
-
-
-<button>Scan for my pizza!</button>
 
 
 </div>
+</div>
+{{/if}}

@@ -14,7 +14,7 @@ pizzaBoxRouter.get('/newPizzaBox', ensureLoggedIn('/'), (req, res, next)=>{
     return;
   }
 
-  res.render('userViews/pizzaBoxViews/newPizzaBox', {user: req.user})
+  res.render('userViews/pizzaBoxViews/newPizzaBox', {user: req.user, css: ['style.css']})
 });
 
 pizzaBoxRouter.get('/pizzaBoxes', ensureLoggedIn('/'), (req, res, next)=>{
@@ -22,7 +22,7 @@ pizzaBoxRouter.get('/pizzaBoxes', ensureLoggedIn('/'), (req, res, next)=>{
     status: "active"
   })
   .then((activePizzaBoxes)=>{
-    res.render('userViews/customerViews/customerHome', {user: req.user, activePizzaBoxes});
+    res.render('userViews/customerViews/customerHome', {user: req.user, activePizzaBoxes, css: ['style2.css']});
   })
   .catch((err)=>{
     next(err);
@@ -63,7 +63,7 @@ pizzaBoxRouter.post('/newPizzaBox', uploadCloud.single('photo'), ensureLoggedIn(
   
   if(store === ""||pizzaname ===""||pizzaboxer ===""||purchasedby ===""||timetolive ===""){
     
-    res.render('userViews/pizzaBoxViews/newPizzaBox.hbs', {errorMessage: "Please fill in all fields."});
+    res.render('userViews/pizzaBoxViews/newPizzaBox.hbs', {css: ['style.css'], user:req.user, errorMessage: "Please fill in all fields."});
       return;
   }
 
@@ -85,12 +85,12 @@ pizzaBoxRouter.get('/myPizzaBoxes',ensureLoggedIn('/'), (req, res, next)=>{
     return; 
   }
 
-  const blah = "awesome"
+  
 PizzaBox.find({
   pizzaboxer: req.user._id// Here put the proper query selector that works in compass: remember. it's gonna be req.user._id
 })
 .then((myPizzaBoxes)=>{
-  res.render('userViews/pizzaBoxViews/myPizzaBoxes.hbs', {user: req.user, myPizzaBoxes, blah});
+  res.render('userViews/pizzaBoxViews/myPizzaBoxes.hbs', {user: req.user, myPizzaBoxes, css: ['style2.css']});
 })
 .catch((err)=>{
   next(err);
@@ -107,7 +107,7 @@ pizzaBoxRouter.post("/myPizzaBoxes/edit", ensureLoggedIn('/'), (req, res, next)=
   const theId = req.body.id;
   PizzaBox.findById(theId)
   .then((thisPizzaBox)=>{
-    res.render('userViews/pizzaBoxViews/editPizzaBox', {pizzabox: thisPizzaBox})
+    res.render('userViews/pizzaBoxViews/editPizzaBox', {user: req.user, css: ['style.css'], pizzabox: thisPizzaBox})
   })
 
 
