@@ -18,6 +18,7 @@ const flash             = require('connect-flash');
 const ensureLogin       = require('connect-ensure-login');
 const User              = require('./models/user')
 
+// process.env.MONGODB_URI
 // 'mongodb://localhost/PizzaBox'
 mongoose.Promise = Promise;
 mongoose      
