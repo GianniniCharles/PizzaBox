@@ -107,11 +107,12 @@ userRouter.get("/home/", ensureLoggedIn('/'), (req, res, next)=>{
   }
   
   if (req.user.usertype === "Customer") {
+    const blah = "awesome"
     PizzaBox.find({
       status: "active"
     })
     .then((activePizzaBoxes)=>{
-      res.render('userViews/customerViews/customerHome', {user: req.user, activePizzaBoxes});
+      res.render('userViews/customerViews/customerHome', {user: req.user, activePizzaBoxes, blah});
     })
     .catch((err)=>{
       next(err);

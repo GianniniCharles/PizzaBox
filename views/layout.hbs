@@ -16,14 +16,14 @@
     <div class= "container">
     <div class = "row">
     
-<div class = "col-m-12 mx-auto whitetext">
+<div class = "col-m-12 mx-auto whitetext megadiv">
 
-    {{#if user}}
-    <a href='/logout'>Logout</a>
-    {{/if}}
+    
     {{{body}}}
 
       <script src="../bootstrap/creativeTimAssets/js/core/jquery.min.js" type="text/javascript"></script>
+      <script src="../javascripts/jquery.smoothState.js"></script>
+       <script src="../javascripts/smoothStateLink.js"></script>
       <script src="../bootstrap/creativeTimAssets/js/core/popper.min.js" type="text/javascript"></script>
       <script src="../bootstrap/creativeTimAssets/js/core/bootstrap-material-design.min.js" type="text/javascript"></script>
       <script src="../bootstrap/creativeTimAssets/js/plugins/moment.min.js" type="text/javascript"></script>
@@ -38,9 +38,17 @@
   
   
       <script src = "../javascripts/material-kit.min.js"></script>
-    <script src='/javascripts/script.js'></script>
     </div>
   </div>
 </div>
+
+{{#if user}}
+<nav class ="myNav">
+  <span><a id ="whitetext" href ="/home">Home</a></span>
+  <span><a id ="whitetext" href ="/pizzaBoxes">PizzaBoxes</a></span>
+  <span><a id ="whitetext" href ="/myAccount">My Account</a></span>
+</nav>
+{{/if}}
+
   </body>
 </html>

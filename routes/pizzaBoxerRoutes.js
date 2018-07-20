@@ -17,6 +17,25 @@ pizzaBoxRouter.get('/newPizzaBox', ensureLoggedIn('/'), (req, res, next)=>{
   res.render('userViews/pizzaBoxViews/newPizzaBox', {user: req.user})
 });
 
+pizzaBoxRouter.get('/pizzaBoxes', ensureLoggedIn('/'), (req, res, next)=>{
+  PizzaBox.find({
+    status: "active"
+  })
+  .then((activePizzaBoxes)=>{
+    res.render('userViews/customerViews/customerHome', {user: req.user, activePizzaBoxes});
+  })
+  .catch((err)=>{
+    next(err);
+  })
+});
+
+
+
+
+
+
+
+
 
 pizzaBoxRouter.post('/newPizzaBox', uploadCloud.single('photo'), ensureLoggedIn('/'), (req, res, next)=>{
   if(req.user.usertype !== 'Restaurant') {
@@ -42,7 +61,7 @@ pizzaBoxRouter.post('/newPizzaBox', uploadCloud.single('photo'), ensureLoggedIn(
   const timetolive = req.body.timelimit;
   const status = req.body.status;
   
-  if(store === ""||pizzaname ===""||originlocation ===""||targetlocation ===""||pizzaboxer ===""||purchasedby ===""||timetolive ===""){
+  if(store === ""||pizzaname ===""||pizzaboxer ===""||purchasedby ===""||timetolive ===""){
     
     res.render('userViews/pizzaBoxViews/newPizzaBox.hbs', {errorMessage: "Please fill in all fields."});
       return;
@@ -65,11 +84,13 @@ pizzaBoxRouter.get('/myPizzaBoxes',ensureLoggedIn('/'), (req, res, next)=>{
     res.redirect('/')
     return; 
   }
+
+  const blah = "awesome"
 PizzaBox.find({
   pizzaboxer: req.user._id// Here put the proper query selector that works in compass: remember. it's gonna be req.user._id
 })
 .then((myPizzaBoxes)=>{
-  res.render('userViews/pizzaBoxViews/myPizzaBoxes.hbs', {user: req.user, myPizzaBoxes});
+  res.render('userViews/pizzaBoxViews/myPizzaBoxes.hbs', {user: req.user, myPizzaBoxes, blah});
 })
 .catch((err)=>{
   next(err);

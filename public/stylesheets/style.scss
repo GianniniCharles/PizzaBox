@@ -60,6 +60,15 @@
   .scene_element--fadeinright {
     animation-name: fadeInRight;
   }
+
+/** Reverse "exit" animations */
+&.is-exiting {
+  .scene_element {
+    animation-direction: alternate-reverse;
+  }
+}
+
+
 }
 
 
@@ -78,6 +87,9 @@
 
 
 // Standard/Mobile CSS 
+
+
+
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   background: linear-gradient(0deg,rgba(0,0,0,0.7),rgba(0,0,0,0.7)), url('/images/pizzaBoxBackground.jpeg') fixed;
@@ -101,7 +113,7 @@ label, input, {
 
 .flexlife {
   display:flex;
-  justify-content: center;
+  justify-content: space-evenly;
 }
 
 .centerMe, #centerMe {
@@ -112,8 +124,12 @@ label, input, {
   color: red;
 }
 
-.whitetext {
+.whitetext, #whitetext {
   color: white !important;
+}
+
+#whitetext {
+  padding: 30px !important
 }
 
 #description {
@@ -126,3 +142,27 @@ label, input, {
 .pizzaCard {
   background-color: rgba(0,0,0, 0.6);
 }
+
+nav, .myNav{
+  background-color: #9C27B5;
+  position: fixed;
+  left: 0vw;
+  bottom: 0vw;
+  height: 8vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+
+
+
+// .ghettonav{
+//   position:fixed;
+//   bottom: 0vh;
+//   right: 0vw;
+//   height: 10vh;
+//   width: 100vw;
+//   background-color: red;
+// }
