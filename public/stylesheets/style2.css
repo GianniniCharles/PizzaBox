@@ -74,7 +74,7 @@ label, input {
   color: white !important; }
 
 #whitetext {
-  padding: 30px !important; }
+  padding: 10px !important; }
 
 #description {
   background-color: rgba(255, 255, 255, 0.2);
@@ -93,7 +93,7 @@ nav, .myNav {
   width: 100vw;
   display: flex;
   align-items: center;
-  justify-content: space-around; 
+  justify-content: space-evenly; 
 }
 
 .barrier {
