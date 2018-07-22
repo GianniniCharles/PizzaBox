@@ -130,19 +130,37 @@ userRouter.get("/myAccount",ensureLoggedIn('/'), (req, res, next)=>{
 
 userRouter.post("/stripe",ensureLoggedIn('/'), (req, res, next)=>{
  
-  const theBox = req.body.theBox;
-  const lastname = req.body.lname;
+const pizzaboxId = req.body.pBoxId;
+const pizzaboxImg = req.body.pBoxImg;
+const pizzaboxStore = req.body.pBoxStore;
+const pizzaboxName = req.body.pBoxName;
+const pizzaboxDescription = req.body.pBoxDescription;
+const pizzaboxPrice = req.body.pBoxPrice;
+const pizzaBoxer= req.body.pBoxer;
+
   // const theBox = JSON.parse(thePreBox);
 
   
-  console.log(`=================the PizzaBox is ${theBox}`);
+
   // if (pizzabox === theUser._id){
   //   res.render('userViews/customerViews/customerHome.hbs', {css: ['style.css'], pizzabox: pizzabox, user: theUser, message: "You can't buy your own pizzabox!"})
   //   return
   // }
 
 
-  res.render('stripe', {css: ['style.css'], pizzabox:theBox})
+  res.render('stripe', {css: ['style.css'], 
+
+  pizzaboxId: pizzaboxId,
+  pizzaboxImg: pizzaboxImg,
+  pizzaboxStore: pizzaboxStore,
+  pizzaboxName: pizzaboxName,
+  pizzaboxDescription: pizzaboxDescription,
+  pizzaboxPrice: pizzaboxPrice,
+  pizzaboxer: pizzaBoxer
+
+
+
+})
 })
 
 
