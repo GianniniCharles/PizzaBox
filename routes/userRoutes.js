@@ -131,13 +131,22 @@ userRouter.get("/myAccount",ensureLoggedIn('/'), (req, res, next)=>{
 userRouter.post("/stripe",ensureLoggedIn('/'), (req, res, next)=>{
  
 const pizzaboxId = req.body.pBoxId;
-const pizzaboxImg = req.body.pBoxImg;
-const pizzaboxStore = req.body.pBoxStore;
-const pizzaboxName = req.body.pBoxName;
-const pizzaboxDescription = req.body.pBoxDescription;
-const pizzaboxPrice = req.body.pBoxPrice;
-const pizzaBoxer= req.body.pBoxer;
 
+
+
+
+PizzaBox.findById(pizzaboxId)
+.then((thePizzaBox)=>{
+  res.render('stripe', {css: ['style.css'], user:req.user, pizzabox: thePizzaBox
+})//end res render
+
+}) //end .then 
+  .catch((err)=>{
+    next(err);
+  })//end.catch 
+
+
+}) //end post method
   // const theBox = JSON.parse(thePreBox);
 
   
@@ -148,20 +157,6 @@ const pizzaBoxer= req.body.pBoxer;
   // }
 
 
-  res.render('stripe', {css: ['style.css'], 
-
-  pizzaboxId: pizzaboxId,
-  pizzaboxImg: pizzaboxImg,
-  pizzaboxStore: pizzaboxStore,
-  pizzaboxName: pizzaboxName,
-  pizzaboxDescription: pizzaboxDescription,
-  pizzaboxPrice: pizzaboxPrice,
-  pizzaboxer: pizzaBoxer
-
-
-
-})
-})
 
 
 userRouter.get("/logout", ensureLoggedIn('/'), (req, res, next) => {
