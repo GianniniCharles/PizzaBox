@@ -1,3 +1,6 @@
+
+
+
 <div class="m-scene centerMe" id="main">
   <div class="m-right-panel m-page scene_element scene_element--fadeinup">
 
@@ -8,6 +11,25 @@
 Feeling hungry?
 </div>
 {{!-- end fade in --}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 {{#if message}}
 <div> <p>{{message}}</p></div>
@@ -30,14 +52,23 @@ Feeling hungry?
         <p class="card-text">"${{this.price}}.00"</p>
 
     <p class="card-text">{{this.pizzaboxer.username}}</p>
+{{this}}
+  <form action="/stripe" method="post">
+  First name: <input type="hidden" name="theBox" value="{{this.store}}"><br>
+  
+
+  
+  <button id ="buyButton" class = "btn btn-success">Buy this PizzaBox</button>
+</form>
+
     {{!-- <p> THE PIZZABOX IS{{this}}</p>
    <p> THE USER IS {{req.user}}</p> --}}
-<form action ="/stripe" method="get">
+{{!-- <form action ="/stripe" method="get"> --}}
     
-    <input type = "text" value = 'Hi' name = "pBox">
-    {{!-- <input type = "hidden" value = '{{user}}' name = "theUser"> --}} --}}
-    <button id ="buyButton" class = "btn btn-success">Buy this PizzaBox</button>
-</form>
+    {{!-- <input type = "text" value = 'Hi' name = "pBox"> --}}
+    {{!-- <input type = "hidden" value = '{{user}}' name = "theUser"> --}} 
+    {{!-- <button id ="buyButton" class = "btn btn-success">Buy this PizzaBox</button> --}}
+{{!-- </form> --}}
     {{!-- <button onclick="myFunction()" id ="buyButton" class = "btn btn-success">Buy this PizzaBox</button>
     <script>
 function myFunction() {

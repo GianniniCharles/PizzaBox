@@ -128,17 +128,21 @@ userRouter.get("/myAccount",ensureLoggedIn('/'), (req, res, next)=>{
 })
 
 
-userRouter.get("/stripe",ensureLoggedIn('/'), (req, res, next)=>{
+userRouter.post("/stripe",ensureLoggedIn('/'), (req, res, next)=>{
  
-  const pizzabox = req.body.pBox;
-  console.log(pizzabox);
+  const theBox = req.body.theBox;
+  const lastname = req.body.lname;
+  // const theBox = JSON.parse(thePreBox);
+
+  
+  console.log(`=================the PizzaBox is ${theBox}`);
   // if (pizzabox === theUser._id){
   //   res.render('userViews/customerViews/customerHome.hbs', {css: ['style.css'], pizzabox: pizzabox, user: theUser, message: "You can't buy your own pizzabox!"})
   //   return
   // }
 
 
-  res.render('stripe', {css: ['style.css'], user: req.user, pizzabox:pizzabox})
+  res.render('stripe', {css: ['style.css'], pizzabox:theBox})
 })
 
 

@@ -4,9 +4,11 @@
 
 <h2>{{user.username}}, you are buying the pizzabox below:<h2>
 
+
+{{#if pizzabox}}
+<h1>{{pizzabox.store}}</h1>
 <h1>{{pizzabox}}</h1>
 
+{{/if}}
 
 
-
-</div>
