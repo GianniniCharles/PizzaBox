@@ -123,7 +123,7 @@ userRouter.get("/home/", ensureLoggedIn('/'), (req, res, next)=>{
 
 
 
-userRouter.get("/myAccount", (req, res, next)=>{
+userRouter.get("/myAccount",ensureLoggedIn('/'), (req, res, next)=>{
   res.render('userViews/myAccount', {css: ['style.css'], user: req.user})
 })
 
