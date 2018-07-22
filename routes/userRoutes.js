@@ -5,6 +5,7 @@ const bcrypt       = require('bcryptjs');
 const passport     = require('passport');
 const ensureLoggedIn = require('connect-ensure-login').ensureLoggedIn;
 const PizzaBox         = require('../models/pizzabox');
+const stripe           = require("stripe")('pk_test_exbZRT00Q8PlgLqP6TArcep6');
 
 
 userRouter.get('/mapsTest', (req, res, next)=>{
@@ -137,7 +138,7 @@ const pizzaboxId = req.body.pBoxId;
 
 PizzaBox.findById(pizzaboxId)
 .then((thePizzaBox)=>{
-  res.render('stripe', {css: ['style.css'], user:req.user, pizzabox: thePizzaBox
+  res.render('stripe', {css: ['style2.css'], user:req.user, pizzabox: thePizzaBox
 })//end res render
 
 }) //end .then 
@@ -155,6 +156,32 @@ PizzaBox.findById(pizzaboxId)
   //   res.render('userViews/customerViews/customerHome.hbs', {css: ['style.css'], pizzabox: pizzabox, user: theUser, message: "You can't buy your own pizzabox!"})
   //   return
   // }
+
+  userRouter.get('/paySuccess'), (req, res, next) =>{
+    res.render('/successPage')
+  }
+
+  userRouter.get("/charge"), (req, res, next) =>{
+
+
+
+    // let chargeAmount = req.body.chargeAmount;
+
+    // stripe.charges.create({
+    //   amount: chargeAmount,
+    //   currency: 'usd',
+    //   source: 'tok_visa',
+    //   receipt_email: 'jenny.rosen@example.com'
+    // },function(err, charge){
+    //   if (err & err.type === "StripeCardError"){
+    //     console.log('Your card was declined');
+    //   }
+    // });
+
+
+    res.redirect('/paySuccess')
+
+  }
 
 
 

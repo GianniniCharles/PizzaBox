@@ -9,6 +9,9 @@ const mongoose          = require('mongoose');
 const logger            = require('morgan');
 const path              = require('path');
 const session           = require("express-session");
+const stripe            = require("stripe")(process.env.stripe_secret);
+const jquery            = require('jquery');
+
 const MongoStore        = require("connect-mongo")(session);
 const app               = express();
 const passport          = require('passport');
@@ -17,6 +20,8 @@ const bcrypt            = require('bcryptjs');
 const flash             = require('connect-flash');
 const ensureLogin       = require('connect-ensure-login');
 const User              = require('./models/user')
+
+
 
 // process.env.MONGODB_URI
 // 'mongodb://localhost/PizzaBox'
@@ -135,6 +140,10 @@ app.use('', userRoutes);
 
 const pizzaBoxerRoutes = require('./routes/pizzaBoxerRoutes', ensureLogin.ensureLoggedIn());
 app.use('', pizzaBoxerRoutes);
+
+
+
+
 
 
 

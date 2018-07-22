@@ -5,8 +5,31 @@
 <h2>{{user.username}}, you are buying the pizzabox below:<h2>
 
 
-{{pizzabox}}
+<div class="card mx-auto" style="width: 20rem;">
+  <h4 class="card-title">{{pizzabox.pizzaname}}</h4>
+  <img class="card-img-top img-responsive mx-auto" src="{{pizzabox.imgsrc}}" alt="Card image cap">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted">Where it's from: {{pizzabox.store}}</h6>
+    <p class="card-text">"{{pizzabox.description}}"</p>
+        <p class="card-text">"${{pizzabox.price}}.00"</p>
+    <p class="card-text">{{pizzabox.pizzaboxer}}</p>
+<form action = "/charge" method ="post">
+  <script src = "https://checkout.stripe.com/checkout.js"
+  class="stripe-button" 
+  data-key= pk_test_exbZRT00Q8PlgLqP6TArcep6
+  data-amount = {{pizzabox.price}}00
+  data-name = "{{pizzabox.pizzaname}}"
+  data-description = "Example Charge - Not for real"
+  data-locale = "auto"
+  data-currency = "usd"
+  data-zip-code = "true"
+  >
+  </script>
+    <input type = "hidden" name = "chargeAmount" value = {{pizzabox.price}}00>
 
-
+</form>
+  </div>
+</div>
+</div>
 
 
