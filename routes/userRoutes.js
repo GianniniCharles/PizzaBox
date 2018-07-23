@@ -157,31 +157,44 @@ PizzaBox.findById(pizzaboxId)
   //   return
   // }
 
-  userRouter.get('/paySuccess'), (req, res, next) =>{
-    res.render('/successPage')
-  }
-
-  userRouter.get("/charge"), (req, res, next) =>{
+  userRouter.get('/paySuccess', (req, res, next) =>{
+    res.render('successPage')
+  });
 
 
 
-    // let chargeAmount = req.body.chargeAmount;
+  userRouter.post("/charge" ,ensureLoggedIn('/'), (req, res, next)=>{
+    console.log('Charge route touched!');
+    res.redirect("/paySuccess");
 
-    // stripe.charges.create({
+
+  })    
+
+
+
+   // stripe.charges.create({
     //   amount: chargeAmount,
     //   currency: 'usd',
     //   source: 'tok_visa',
-    //   receipt_email: 'jenny.rosen@example.com'
-    // },function(err, charge){
+    //   receipt_email: '12gcharles@gmail.com'
+    // },
+
+
+
+    // function(err, charge){
     //   if (err & err.type === "StripeCardError"){
     //     console.log('Your card was declined');
     //   }
-    // });
+  
+   
 
 
-    res.redirect('/paySuccess')
+   
+  
 
-  }
+
+
+  
 
 
 
