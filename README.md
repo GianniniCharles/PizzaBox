@@ -34,8 +34,9 @@ These will take you to the main areas of this app.
 
 Pizzaboxes:
 - You can click here to see all active pizzaboxes in the system. You can click on them to attempt a purchase*.
-- *The purchase feature will not actually be available until future development occurs to comply with local, state, and federal laws regarding consumer privacy and safety in the USA.
--If you click "Buy this PizzaBox", you'll get a funny message.
+- For right now, the purchase feature is in test mode. Please DO NOT put real credit card information in the payment field.
+- Use 4242 4242 4242 4242, and an expiration date in the future. All other information you can put however you wish.
+
 
 My Account: 
 - You will see your username, password, and usertype. The logout button is here.
@@ -56,6 +57,18 @@ My Account:
 - 4. Description: Write any details you'd like to write about the pizza.
 
 Once you have that information, it will appear on the screen!
+
+
+
+##Purchasing a Pizzabox
+
+-When you are on the PizzaBoxes menu, you can see the information on a pizza box.
+- If you click
+- 3. Price. Enter a number in USD ($). No decimals, letters, or symbols, please. Just numbers :)
+- 4. Description: Write any details you'd like to write about the pizza.
+
+Once you have that information, it will appear on the screen!
+
 
 
 If any more questions, feel free to send me a message on linkedIn:
