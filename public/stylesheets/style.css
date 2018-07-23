@@ -1,3 +1,10 @@
+.finished a {
+  color: aquamarine !important;
+  font-weight: bold; }
+
+.finished p {
+  font-size: 1.2em; }
+
 @keyframes fadeIn {
   0% {
     opacity: 0; }

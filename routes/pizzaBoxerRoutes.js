@@ -1,11 +1,11 @@
-const express      = require('express');
-const pizzaBoxRouter   = express.Router();
-const PizzaBox         = require('../models/pizzabox');
-const passport     = require('passport');
-const ensureLoggedIn = require('connect-ensure-login').ensureLoggedIn;
-const uploadCloud = require('../config/cloudinary');
-const cloudinaryStorage = require('multer-storage-cloudinary');
-const multer = require('multer');
+const express                = require('express');
+const pizzaBoxRouter         = express.Router();
+const PizzaBox               = require('../models/pizzabox');
+const passport               = require('passport');
+const ensureLoggedIn         = require('connect-ensure-login').ensureLoggedIn;
+const uploadCloud            = require('../config/cloudinary');
+const cloudinaryStorage      = require('multer-storage-cloudinary');
+const multer                 = require('multer');
 
 
 pizzaBoxRouter.get('/newPizzaBox', ensureLoggedIn('/'), (req, res, next)=>{

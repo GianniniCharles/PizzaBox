@@ -1,5 +1,5 @@
-<div class = "centerMe">
-
+<div class="m-scene centerMe" id="main">
+  <div class="m-right-panel m-page scene_element scene_element--fadeinup">
 <h1> PizzaBox Checkout</h1>
 
 <h3>DO NOT PUT YOUR REAL CARD INFO IN.<h3>
@@ -15,33 +15,36 @@
   <img class="card-img-top img-responsive mx-auto" src="{{pizzabox.imgsrc}}" alt="Card image cap">
   <div class="card-body">
     <h6 class="card-subtitle mb-2 text-muted">Where it's from: {{pizzabox.store}}</h6>
-    <p class="card-text">"{{pizzabox.description}}"</p>
+    <span class="card-text">"{{pizzabox.description}}"</span>
         <p class="card-text">"${{pizzabox.price}}.00"</p>
-    <p class="card-text">{{pizzabox.pizzaboxer}}</p>
+    {{!-- <p class="card-text">{{pizzabox.pizzaboxer}}</p> --}}
 
  <form action = "/charge" method ="post">
 
 
 
-{{!-- <input type="text" name ="ilikecheese">
 
-<button class = "btn btn-danger">GIVEMEYOURMONEY</button> --}}
-
-  <script src = "https://checkout.stripe.com/checkout.js"
-  class="stripe-button" 
-  data-key= pk_test_exbZRT00Q8PlgLqP6TArcep6
-  data-amount = {{pizzabox.price}}00
-  data-name = "{{pizzabox.pizzaname}}"
-  data-description = "Example Charge - Not for real"
-  data-locale = "auto"
-  data-currency = "usd"
-  data-zip-code = "true"
-  >
+  <script
+    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+    data-key="pk_test_ZW97iPv3XA8PotQwk2B4QMEF"
+    data-amount={{pizzabox.price}}00
+    data-name="{{pizzabox.pizzaname}}"
+    data-description="Example Charge - Not for real"
+    data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+    data-locale="auto">
+    data-currency = "usd"
+    data-zip-code="true"
   </script>
+  {{!-- Safeguard against frontend price hacking via console below --}}
     <input type = "hidden" name = "chargeAmount" value = {{pizzabox.price}}00>
+
+
+
+  
 
 </form>
   </div>
+</div>
 </div>
 </div>
 

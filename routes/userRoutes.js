@@ -5,7 +5,7 @@ const bcrypt       = require('bcryptjs');
 const passport     = require('passport');
 const ensureLoggedIn = require('connect-ensure-login').ensureLoggedIn;
 const PizzaBox         = require('../models/pizzabox');
-const stripe           = require("stripe")('pk_test_exbZRT00Q8PlgLqP6TArcep6');
+var stripe = require("stripe")(process.env.stripe_secret);
 
 
 userRouter.get('/mapsTest', (req, res, next)=>{
@@ -158,13 +158,26 @@ PizzaBox.findById(pizzaboxId)
   // }
 
   userRouter.get('/paySuccess', (req, res, next) =>{
-    res.render('successPage')
+    res.render('successPage', {css: ['style2.css'], user:req.user}
+  )
   });
 
 
 
   userRouter.post("/charge" ,ensureLoggedIn('/'), (req, res, next)=>{
     console.log('Charge route touched!');
+
+    const token = req.body.stripeToken; // Using Express
+    const chargeAmount = req.body.chargeAmount
+    const charge = stripe.charges.create({
+      amount: chargeAmount,
+      currency: 'usd',
+      description: 'Example charge',
+      source: token,
+    });
+
+
+
     res.redirect("/paySuccess");
 
 
